@@ -1,24 +1,111 @@
 .card-book {
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
   width: 150px;
-  height: 150px;
-  box-shadow: 0 1px 1px $dark-app, 0 1px 2px $dark-app;
-  .card-book-title {
-    border-radius: 5px 5px 0 0;
-    padding: 4px;
-    text-align: center;
-    font-size: 16px;
-    color: $orange-app;
-    background-color: $dark-app;
-  }
-  .card-book-description {
-    margin-top: auto;
-    margin-bottom: auto;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  .cover {
+    transform: rotateY(-20deg);
     width: 100%;
+    z-index: -1;
+    height: 100%;
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20%;
+    align-items: center;
+    background: #ddd;
+    &:hover {
+      background: $red-app;
+    }
+    &:before {
+      background-image: linear-gradient(rgba($dark-app, 0.9), rgba($dark-app, 0.7));
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      border-left: 4px solid rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+  }
+  .title {
+    font-size: 24px;
+    color: $orange-app!important;
+    z-index: 5;
+    max-height: 110px;
+    overflow: hidden;
+  }
+  .footer {
+    z-index: 5;
+    width: 100%;
+    color: $orange-app;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    margin-bottom: 0;
+    .author {
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 0;
+    bottom: 7px;
+    transform: rotateY(-20deg) translateZ(-20px);
+    z-index: 0;
+    box-shadow: 10px 12px 20px 13px rgba(0, 0, 0, 0.3);
+  }
+  .page {
+    width: calc(100% - 20px);
+    height: calc(100% - 2px);
+    position: absolute;
+    box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.2),
+      inset -1px 0px 1px rgba(150, 150, 150, 0.1);
+    border-radius: 0px 3px 3px 0px;
+    transform: rotateY(-20deg) translateZ(-5px);
+    right: -3px;
+    z-index: 4;
+    background: white;
+  }
+  
+  .page-2 {
+    height: calc(100% - 4px);
+    right: -6px;
+    z-index: 3;
+  }
+  
+  .page-3 {
+    height: calc(100% - 6px);
+    right: -9px;
+    z-index: 2;
+  }
+  
+  .page-4 {
+    height: calc(100% - 8px);
+    right: -12px;
+    z-index: 1;
+  }
+  
+  .cover.final-page {
+    position: absolute;
+    z-index: -1;
+    right: -15px;
+    transform: rotateY(-19deg) translateZ(-10px) scale(0.984);
   }
 }
+
 
 html {
   --lh: 1.5rem;
