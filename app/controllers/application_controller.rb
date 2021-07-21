@@ -28,4 +28,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[phone last_name first_name address])
   end
+
+  def after_sign_in_path_for(_resource)
+    if current_buyer
+      cart = Cart.find_by(buyer: current_buyer, state: 'pending')
+      Cart.create(buyer: current_buyer) unless cart
+    end
+    root_path
+  end
 end

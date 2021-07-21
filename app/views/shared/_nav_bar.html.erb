@@ -1,18 +1,21 @@
 <% if buyer_signed_in? || seller_signed_in? %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Book-King</a>
+    <%= link_to "Book-King", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="navbar-user d-flex align-items-center">
+        <li class="nav-item d-flex align-items-center">
           <%= buyer_signed_in? ? current_buyer.name : current_seller.name %>
         </li>
+        <%= link_to root_path, class: "nav-item" do %>
+          <i class="fas fa-shopping-cart"></i>
+        <% end %>
       </ul>
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
