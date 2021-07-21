@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-home-page text-center pt-5">
+  <div class="w-50 ml-auto">
+    <h1>Welcome to Book-king</h1>
+    <h3>Join the adventure Signing-up</h3>
+    <div class="row w-100 mt-5">
+      <div class="col-md-6 border-right">
+        <h4>I'm a seller</h4>
+        <div class="d-flex flex-column align-items-center">
+          <%= link_to "Sign Up", new_seller_registration_path, class: 'btn-orange-ext' %>
+          <%= link_to "I already have an account", new_seller_session_path %>
+        </div>
+      </div>
+      <div class="col-md-6 border-left">
+        <h4>I'm a buyer</h4>
+        <div class="d-flex flex-column align-items-center">
+          <%= link_to "Sign Up", new_buyer_registration_path, class: 'btn-orange-ext' %>
+          <%= link_to "I already have an account", new_buyer_session_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

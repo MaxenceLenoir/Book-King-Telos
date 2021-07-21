@@ -1,0 +1,12 @@
+.btn-orange-ext {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: $orange-app solid 0.5px;
+  color: $dark-app;
+  &:hover {
+    border: $dark-app solid 0.5px;
+    text-decoration: none;
+    color: $dark-app;
+    cursor: pointer;
+  }
+}
