@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_171730) do
+ActiveRecord::Schema.define(version: 2021_07_21_174158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2021_07_21_171730) do
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
 
+  create_table "cart_elements", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_cart_elements_on_book_id"
+    t.index ["cart_id"], name: "index_cart_elements_on_cart_id"
+  end
+
   create_table "carts", force: :cascade do |t|
     t.string "state", default: "pending", null: false
     t.bigint "buyer_id", null: false
@@ -66,5 +75,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_171730) do
   end
 
   add_foreign_key "books", "sellers"
+  add_foreign_key "cart_elements", "books"
+  add_foreign_key "cart_elements", "carts"
   add_foreign_key "carts", "buyers"
 end

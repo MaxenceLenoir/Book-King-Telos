@@ -16,7 +16,9 @@
   <div class="card-body">
     <p class="card-text"><%= @book.description %></p>
     <% if current_buyer  %>
-      <div class="btn-orange-ext">Add to cart <i class="fas fa-shopping-cart"></i></div>
+      <%= simple_form_for @cart_element, method: :post, url: cart_elements_path, remote: true do |f| %>
+        <%= render "render_form_new_cart_element" %>
+      <% end %>
     <% end %>
   </div>
   <div class="card-footer text-muted">

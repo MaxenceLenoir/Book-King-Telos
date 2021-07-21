@@ -9,8 +9,13 @@ class Buyer < ApplicationRecord
   has_one :cart
   has_many :carts, -> { no_scope }
   has_many :carts_paid, -> { paid }, class_name: "Cart"
+  has_many :cart_elements, through: :cart
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def notifs_counter
+    cart_elements.count
   end
 end

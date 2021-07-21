@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     authorize @book
+    @cart_element = CartElement.new
   end
 
   def create

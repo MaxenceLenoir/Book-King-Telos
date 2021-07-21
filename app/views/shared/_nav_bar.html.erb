@@ -10,8 +10,10 @@
         <li class="nav-item d-flex align-items-center">
           <%= buyer_signed_in? ? current_buyer.name : current_seller.name %>
         </li>
-        <%= link_to root_path, class: "nav-item" do %>
-          <i class="fas fa-shopping-cart"></i>
+        <% if current_buyer %>          
+          <%= link_to root_path, class: "nav-item", id: "cart-nav-bar" do %>
+            <%= render "shared/render_nav_bar_notifs" %>
+          <% end %>
         <% end %>
       </ul>
       <div class="nav-item dropdown">
