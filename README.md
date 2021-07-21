@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails App Book Store - Telos Labs Challenge
+
+In order to better understand how this app works, you can find futher information [here]
