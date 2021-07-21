@@ -1,0 +1,59 @@
+.card-book {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 1px 1px $dark-app, 0 1px 2px $dark-app;
+  .card-book-title {
+    border-radius: 5px 5px 0 0;
+    padding: 4px;
+    text-align: center;
+    font-size: 16px;
+    color: $orange-app;
+    background-color: $dark-app;
+  }
+  .card-book-description {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+  }
+}
+
+html {
+  --lh: 1.5rem;
+  line-height: var(--lh);
+}
+
+.truncate-overflow {
+  --max-lines: 4;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+  text-align: center;
+  padding-right: 2rem; /* space for ellipsis */
+}
+.truncate-overflow::before {
+  position: absolute;
+  content: "...";
+  /* tempting... but shows when lines == content */
+  /* top: calc(var(--lh) * (var(--max-lines) - 1)); */
+  
+  /*
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  */
+  bottom: 0;
+  right: 0;
+}
+.truncate-overflow::after {
+  content: "";
+  position: absolute;
+  /*
+  inset-inline-end: 0;
+  */
+  right: 0;
+  /* missing bottom on purpose*/
+  width: 1.1rem;
+  height: 1.1rem;
+}

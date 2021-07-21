@@ -1,0 +1,15 @@
+<% if policy(@book).update?  %>
+  <%= link_to edit_book_path(@book), class: "mx-auto" do %>
+  <i class="fas fa-edit"></i>
+  <% end %>
+<% end %>
+<% if policy(@book).destroy?  %>
+  <%= link_to book_path(@book), class: "mx-auto", method: :delete do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+<% end %>
+
+<h1><%= @book.title %></h1>
+<%= @book.author %>
+<p><%= @book.description %></p>
+<%= @book.price %>

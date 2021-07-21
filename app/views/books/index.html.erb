@@ -1,4 +1,24 @@
-<h1 class="text-center">Book-King librairy</h1>
-<% @books.each do |book| %>
-  <%= book.title %>
+<% if policy(Book).new?  %>
+  <%= link_to "Want to sell a book ?", new_book_path, class: "mx-auto" %>
 <% end %>
+
+<h1 class="text-center">Book-King librairy</h1>
+
+<div class="container-wrap">
+  <% @books.each do |book| %>
+    <%= link_to book_path(book) do %>
+      <div class="card-book">
+        <div class="card-book-title"><%= book.title %></div>
+        <div class="card-book-description p-2">
+          <div class="truncate-overflow">
+            <%= book.description %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between px-2">
+          <div><%= book.author %></div>
+          <%= humanized_money_with_symbol(book.price) %>  
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
