@@ -6,4 +6,8 @@ class Buyer < ApplicationRecord
 
   validates :email, :first_name, :last_name, :address, :password, presence: true
   monetize :account_money_cents
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

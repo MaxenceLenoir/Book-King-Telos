@@ -1,0 +1,31 @@
+<% if buyer_signed_in? || seller_signed_in? %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Book-King</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="navbar-user d-flex align-items-center">
+          <%= buyer_signed_in? ? current_buyer.name : current_seller.name %>
+        </li>
+      </ul>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Mon profil", root_path, class: 'dropdown-item' %>
+          
+          <% if buyer_signed_in? %>
+            <%= link_to "Se déconnecter", destroy_buyer_session_path, method: :delete, class: 'dropdown-item' %>
+          <% end %>
+          <% if seller_signed_in? %>
+            <%= link_to "Se déconnecter", destroy_seller_session_path, method: :delete, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% end %>

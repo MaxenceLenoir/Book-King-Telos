@@ -5,4 +5,8 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, :first_name, :last_name, :phone, :password, presence: true
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
