@@ -17,13 +17,12 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "last_name" }%>
-      
       <% if resource_name == :seller %>        
         <%= f.input :phone,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>     
-      <% elsif resource_name == :seller  %>
+      <% elsif resource_name == :buyer  %>
         <%= f.input :address,
                     required: true,
                     autofocus: true,
