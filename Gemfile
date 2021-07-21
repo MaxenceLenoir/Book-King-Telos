@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'money-rails'
 gem "pundit"
+gem 'pg_search'
 
 group :development, :test do
   gem 'pry-byebug'

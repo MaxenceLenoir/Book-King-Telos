@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = policy_scope(Book)
+    @books = params[:query] ? policy_scope(Book).search_by_title(params[:query]) : policy_scope(Book)
   end
 
   def new

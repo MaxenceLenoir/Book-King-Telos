@@ -4,6 +4,24 @@
 
 <h1 class="text-center mb-3">Book-King librairy</h1>
 
+<div class="row">
+  <form action=<%= books_path %> method="GET" class="my-4 offset-md-3 col-md-6">
+    <div class="input-group search-bloc">
+      <input class="form-control py-2" name="query" type="search" placeholder="Harry Potter">
+      <span class="input-group-append">
+        <button class="btn btn-outline-warning" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </form>
+</div>
+
+<% if params[:query] %>
+  <%= link_to "See all the books", books_path, class: "d-flex justify-content-center" %>
+<% end %>
+
+
 <div class="container-wrap">
   <% @books.each do |book| %>
     <%= link_to book_path(book) do %>
