@@ -11,7 +11,7 @@
           <%= buyer_signed_in? ? current_buyer.name : current_seller.name %>
         </li>
         <% if current_buyer %>          
-          <%= link_to root_path, class: "nav-item", id: "cart-nav-bar" do %>
+          <%= link_to cart_path(current_buyer.cart), class: "nav-item", id: "cart-nav-bar" do %>
             <%= render "shared/render_nav_bar_notifs" %>
           <% end %>
         <% end %>
