@@ -1,8 +1,8 @@
 <%= hidden_field_tag 'book_id', @book.id %>
-  <% if @book.available? %>
-    <%= button_tag type: "submit", class: "btn-orange-ext" do %>
-      Add to cart <i class="fas fa-shopping-cart"></i>
-  <% else %>
-    We are sorry but this book is no longer available..
+<% if @book.available? %>
+  <%= button_tag type: "submit", class: "btn-orange-ext", id: "button-add-cart" do %>
+    Add to cart <i class="fas fa-shopping-cart"></i>
   <% end %>
+<% else %>
+  We are sorry but this book is no longer available..
 <% end %>

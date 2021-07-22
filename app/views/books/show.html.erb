@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 
-<div class="card text-center">
+<div class="card text-center" id="show-card-book-<%= @book.id %>">
   <div class="card-header">
     <%= @book.title %>(<%= humanized_money_with_symbol(@book.price) %>)
   </div>

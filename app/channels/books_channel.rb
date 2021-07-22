@@ -4,5 +4,6 @@ class BooksChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
+    stop_stream_from 'books'
   end
 end
