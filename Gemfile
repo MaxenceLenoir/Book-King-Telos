@@ -37,6 +37,7 @@ gem "pundit"
 gem 'pg_search'
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

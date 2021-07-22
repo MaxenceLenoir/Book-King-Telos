@@ -450,6 +450,15 @@
   .book-wrap {
     width: 80vw;
     margin-bottom: 2vw;
+    h2 {
+      font-size: 16px;
+    }
+    h4 {
+      font-size: 14px;
+    }
+    h5, h6 {
+      font-size: 12px;
+    }
   }
   .layer-text {
     width: 94%;
@@ -520,6 +529,9 @@
 @media (max-width: 479px) {
   .scene {
     height: 69vw;
+    .button {
+      font-size: 12px;
+    }
   }
   .corner-fold {
     width: 5.5vw;

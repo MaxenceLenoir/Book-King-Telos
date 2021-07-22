@@ -9,7 +9,6 @@ class Cart < ApplicationRecord
   monetize :amount_cents
   validates :amount_cents, numericality: { greater_than_or_equal_to: 0 }
 
-
   scope :pending, -> { where(state: 'pending') }
   scope :not_canceled, -> { where(state: %w[pending paid]) }
   scope :paid, -> { where(state: 'paid') }
