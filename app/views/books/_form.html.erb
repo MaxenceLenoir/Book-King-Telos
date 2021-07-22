@@ -1,9 +1,14 @@
-<div class="form-book-king">
-  <%= simple_form_for book do |f| %>
-    <%= f.input :title, label: "Title" %>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :author, label: "Author" %>
-    <%= f.input :price, label: "Price" %>
-    <%= f.button :submit, class: "btn-orange-ext text-white", data: { disable_with: f.object.new_record? ? 'Creating...' : 'Updating...' } %>
-  <% end %>
-</div> 
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <div class="form-book-king">
+      <%= simple_form_for book do |f| %>
+        <%= f.input :title, label: "Title" %>
+        <%= f.input :description, as: :text, label: "Description" %>
+        <%= f.input :author, label: "Author" %>
+        <%= f.input :price, label: "Price" %>
+        <%= f.button :submit, class: "btn-orange-ext text-white", data: { disable_with: f.object.new_record? ? 'Creating...' : 'Updating...' } %>
+      <% end %>
+    </div> 
+  </div>
+</div>
+  

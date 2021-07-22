@@ -1,9 +1,13 @@
-<div class="form-book-king">
-  <%= simple_form_for buyer, url: profile_path(buyer) do |f| %>
-    <%= f.input :first_name, label: "First_name" %>
-    <%= f.input :last_name, label: "Last name" %>
-    <%= f.input :email, label: "Email" %>
-    <%= f.input :address, label: "Address" %>
-    <%= f.button :submit, class: "btn-orange-ext text-white", data: { disable_with: 'Updating...' } %>
-  <% end %>
-</div> 
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <div class="form-book-king">
+      <%= simple_form_for buyer, url: profile_path(buyer) do |f| %>
+        <%= f.input :first_name, label: "First_name" %>
+        <%= f.input :last_name, label: "Last name" %>
+        <%= f.input :email, label: "Email" %>
+        <%= f.input :address, label: "Address" %>
+        <%= f.button :submit, class: "btn-orange-ext text-white", data: { disable_with: 'Updating...' } %>
+      <% end %>
+    </div>
+  </div>
+</div>

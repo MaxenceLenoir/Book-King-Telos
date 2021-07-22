@@ -25,8 +25,8 @@
 <div class="container-wrap" id="books-container">
   <% @books.each do |book| %>
     <% if book.available? %>
-      <%= link_to book_path(book) do %>
-        <div class="card-book" id="card-book-<%= book.id %>">
+      <%= link_to book_path(book), id: "card-book-#{book.id}" do %>
+        <div class="card-book">
           <div class="cover">
             <div class="title px-2"><%= book.title %></div>
             <div class="footer">
