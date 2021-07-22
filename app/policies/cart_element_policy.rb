@@ -12,4 +12,8 @@ class CartElementPolicy < ApplicationPolicy
   def create?
     user.is_a?(Buyer)
   end
+
+  def destroy?
+    record.cart.buyer == user
+  end
 end

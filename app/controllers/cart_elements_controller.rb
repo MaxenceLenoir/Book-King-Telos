@@ -13,4 +13,13 @@ class CartElementsController < ApplicationController
       format.js { render 'books/show.js.erb' }
     end
   end
+
+  def destroy
+    respond_to do |format|
+      cart_element = CartElement.find(params[:id])
+      authorize cart_element
+      cart_element.destroy
+      format.js { render 'carts/show.js.erb', cart: current_buyer.cart }
+    end
+  end
 end
