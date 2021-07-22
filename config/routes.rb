@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :books, only: :index
   end
+
+  resources :profiles, only: :show
 end

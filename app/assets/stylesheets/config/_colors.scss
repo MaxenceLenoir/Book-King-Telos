@@ -17,3 +17,8 @@ $white-app: #eae2b7;
 .white-text {
   color: $white-app;
 }
+
+.bg-dark-app {
+  background-color: $dark-app!important;
+  color: orange!important;
+}
