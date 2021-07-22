@@ -12,6 +12,7 @@ class Buyer < ApplicationRecord
   has_many :carts_paid, -> { paid }, class_name: "Cart"
   has_many :cart_elements, through: :cart
   has_many :cart_elements_paid, through: :carts_paid, source: :cart_elements
+  has_many :books_paid, through: :cart_elements_paid, source: :book
 
   def name
     "#{first_name} #{last_name}"
