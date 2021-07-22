@@ -6,8 +6,8 @@ class Buyer < ApplicationRecord
 
   validates :email, :first_name, :last_name, :address, :password, presence: true
   monetize :account_money_cents
-  has_one :cart
-  has_many :carts, -> { no_scope }
+  has_one :cart, -> { pending }
+  has_many :carts
   has_many :carts_paid, -> { paid }, class_name: "Cart"
   has_many :cart_elements, through: :cart
 

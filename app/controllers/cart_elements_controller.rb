@@ -9,6 +9,7 @@ class CartElementsController < ApplicationController
       cart_element = CartElement.new(book: @book, cart: current_buyer.cart)
       authorize cart_element
       cart_element.save
+      BooksChannel.broadcast_to('books', id: @book.id)
       format.js { render 'books/show.js.erb' }
     end
   end

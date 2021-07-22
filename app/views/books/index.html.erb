@@ -22,25 +22,27 @@
 <% end %>
 
 
-<div class="container-wrap">
+<div class="container-wrap" id="books-container">
   <% @books.each do |book| %>
-    <%= link_to book_path(book) do %>
-      <div class="card-book">
-        <div class="cover">
-          <div class="title px-2"><%= book.title %></div>
-          <div class="footer">
-            <div class="author"><%= book.author %></div>
-            <div class="price"><%= humanized_money_with_symbol(book.price) %> </div> 
+    <% if book.available? %>
+      <%= link_to book_path(book) do %>
+        <div class="card-book" id="card-book-<%= book.id %>">
+          <div class="cover">
+            <div class="title px-2"><%= book.title %></div>
+            <div class="footer">
+              <div class="author"><%= book.author %></div>
+              <div class="price"><%= humanized_money_with_symbol(book.price) %> </div> 
+            </div>
+          </div>
+          <div class="page"></div>
+          <div class="page page-2"></div>
+          <div class="page page-3"></div>
+          <div class="page page-4"></div>
+          <div class="cover final-page">
+            <div class="text"></div>
           </div>
         </div>
-        <div class="page"></div>
-        <div class="page page-2"></div>
-        <div class="page page-3"></div>
-        <div class="page page-4"></div>
-        <div class="cover final-page">
-          <div class="text"></div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
