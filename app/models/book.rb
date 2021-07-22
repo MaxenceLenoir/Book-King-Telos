@@ -13,4 +13,8 @@ class Book < ApplicationRecord
   def available?
     carts.select { |cart| cart.state == "paid" || cart.state == "pending" }.empty?
   end
+
+  def sold?
+    carts.select { |cart| cart.state == "paid" }.empty?
+  end
 end

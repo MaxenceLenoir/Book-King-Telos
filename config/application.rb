@@ -15,6 +15,7 @@ module RailsBookStoreTelos
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.x.fees = config_for(:fees)
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -45,6 +45,7 @@
     }
   }
   .title {
+    word-break: break-all;
     font-size: 24px;
     color: $orange-app!important;
     z-index: 5;

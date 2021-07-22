@@ -1,0 +1,11 @@
+default: &default
+  book-king-fees: 1
+
+development:
+  <<: *default
+test:
+  <<: *default
+staging:
+  <<: *default
+production:
+  <<: *default

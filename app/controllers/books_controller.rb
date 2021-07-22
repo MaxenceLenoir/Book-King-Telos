@@ -50,6 +50,9 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :description, :author, :price)
+    params_book = params.require(:book).permit(:title, :description, :author, :price)
+    # We add the fee from our website before creating a book
+    params_book[:price] = params_book[:price].to_f + Rails.application.config.x.fees["book-king-fees"]
+    params_book
   end
 end

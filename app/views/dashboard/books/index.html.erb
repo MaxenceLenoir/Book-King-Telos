@@ -1,0 +1,34 @@
+<h1 class="text-center mb-3">Dashboard</h1>
+<h5 class="mb-5 d-flex justify-content-center align-items-center">
+  You have won &nbsp<span class="earnings"><%= humanized_money_with_symbol(@earnings) %></span>&nbsp on Book-King, well done
+</h5>
+
+<div class="container-wrap" id="books-container">
+  <% if current_seller.books.any? %>
+    <% current_seller.books.each do |book| %>
+      <div class="card-book" id="card-book-<%= book.id %>">
+        <% if book.sold? %>
+          <div class="tag-book border border-warning text-warning">In stock</div>
+        <% else %>
+          <div class="tag-book border border-success text-success">Sold</div>
+        <% end %>
+        <div class="cover">
+          <div class="title px-2"><%= book.title %></div>
+          <div class="footer">
+            <div class="author"><%= book.author %></div>
+            <div class="price"><%= humanized_money_with_symbol(book.price) %> </div> 
+          </div>
+        </div>
+        <div class="page"></div>
+        <div class="page page-2"></div>
+        <div class="page page-3"></div>
+        <div class="page page-4"></div>
+        <div class="cover final-page">
+          <div class="text"></div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    You haven't sold any book yet.
+  <% end %>
+</div>

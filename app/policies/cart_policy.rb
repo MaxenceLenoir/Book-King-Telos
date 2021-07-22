@@ -8,4 +8,8 @@ class CartPolicy < ApplicationPolicy
   def show?
     record == user.cart
   end
+
+  def cart_payment?
+    record == user.cart
+  end
 end

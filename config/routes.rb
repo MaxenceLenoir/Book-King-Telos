@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   
   resources :books
   resources :carts, only: :show
+  get '/cart_payment/pay', to: 'carts#cart_payment', as: :cart_payment
   resources :cart_elements, only: %i[create destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :dashboard do
+    resources :books, only: :index
+  end
 end

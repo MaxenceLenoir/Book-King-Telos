@@ -5,24 +5,27 @@
 }
 
 .nav-item {
-  display: block;
+  display: flex;
+  justify-content: center;
   padding: 0.5rem 0.5rem;
 }
 
 #cart-nav-bar {
-  position: relative;
-  .notif-number {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: $dark-app;
-    color: white;
-    font-size: 12px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  i {
+    position: relative;
+    .notif-number {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background-color: $dark-app;
+      color: white;
+      font-size: 12px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

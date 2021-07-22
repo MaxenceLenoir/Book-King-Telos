@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def skip_pundit?
-    devise_controller? || params[:controller] == "pages"
+    devise_controller? || params[:controller] == "pages" || is_a?(Dashboard::BooksController)
   end
 
   def configure_permitted_parameters
