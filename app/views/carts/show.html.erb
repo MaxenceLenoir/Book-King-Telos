@@ -1,11 +1,4 @@
 <h1 class="text-center">Your articles</h1>
-<% if @cart.cart_elements.present? %>
-  <div class="d-flex justify-content-center">
-    <%= link_to "Pay", cart_payment_path, class: "button btn-orange-ext mb-4"%>
-  </div>
-  <div class="container-wrap mb-3" id="cart-elements-container">
-    <%= render "cart_elements/render_cart_elements", cart: @cart %>
-  </div>
-<% else %>
-  <div class="text-center">You don't have any article yet</div>
-<% end %>
+<div id="cart-elements-container">
+  <%= render "cart_elements/render_cart_elements" %>
+</div>

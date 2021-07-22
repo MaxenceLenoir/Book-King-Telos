@@ -14,7 +14,7 @@
 
   <body>
     <%= render "shared/nav_bar" %>
-    <%= content_tag :div, class: ("container mt-3" unless params[:controller] == "pages") do %>
+    <%= content_tag :div, class: ("container mt-3 position-relative" unless params[:controller] == "pages") do %>
       <%= yield %>
     <% end %>
     <%= render "shared/flashes" %>

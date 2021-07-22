@@ -1,21 +1,30 @@
-<% current_buyer.cart.cart_elements.each do |c_e| %>
-  <div class="card-book" id="card-book-<%= c_e.book.id %>">
-    <%= link_to cart_element_path(c_e), method: :delete, class:"delete-link", remote: true do %>
-      <i class="far fa-trash-alt text-danger"></i>
-    <% end %>
-    <div class="cover">
-      <div class="title px-2"><%= c_e.book.title %></div>
-      <div class="footer">
-        <div class="author"><%= c_e.book.author %></div>
-        <div class="price"><%= humanized_money_with_symbol(c_e.book.price) %> </div> 
-      </div>
-    </div>
-    <div class="page"></div>
-    <div class="page page-2"></div>
-    <div class="page page-3"></div>
-    <div class="page page-4"></div>
-    <div class="cover final-page">
-      <div class="text"></div>
-    </div>
+<% if current_buyer.cart.cart_elements.present? %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Pay", cart_payment_path, class: "button btn-orange-ext mb-4"%>
   </div>
+  <div class="container-wrap mb-3" id="cart-elements-container">
+    <% current_buyer.cart.cart_elements.each do |c_e| %>
+      <div class="card-book" id="card-book-<%= c_e.book.id %>">
+        <%= link_to cart_element_path(c_e), method: :delete, class:"delete-link", remote: true do %>
+          <i class="far fa-trash-alt text-danger"></i>
+        <% end %>
+        <div class="cover">
+          <div class="title px-2"><%= c_e.book.title %></div>
+          <div class="footer">
+            <div class="author"><%= c_e.book.author %></div>
+            <div class="price"><%= humanized_money_with_symbol(c_e.book.price) %> </div> 
+          </div>
+        </div>
+        <div class="page"></div>
+        <div class="page page-2"></div>
+        <div class="page page-3"></div>
+        <div class="page page-4"></div>
+        <div class="cover final-page">
+          <div class="text"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="text-center">You don't have any article yet</div>
 <% end %>
