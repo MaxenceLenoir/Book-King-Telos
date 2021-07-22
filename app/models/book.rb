@@ -17,6 +17,6 @@ class Book < ApplicationRecord
   end
 
   def sold?
-    carts.select { |cart| cart.state == "paid" }.empty?
+    carts.select { |cart| cart.state == "paid" }.any?
   end
 end

@@ -28,7 +28,7 @@ end
 
 puts "Creating cart..."
 
-Cart.create!(buyer: Buyer.all.sample)
+Cart.create!(buyer: Buyer.all.sample, state: "paid")
 
 puts "1 cart created"
 

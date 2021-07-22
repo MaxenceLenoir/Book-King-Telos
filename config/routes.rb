@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :books, only: :index
   end
 
-  resources :profiles, only: :show
+  resources :profiles, only: %i[show edit update]
 end

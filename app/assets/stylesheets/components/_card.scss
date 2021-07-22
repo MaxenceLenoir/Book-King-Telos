@@ -117,6 +117,7 @@
 }
 
 .card-identity {
+  position: relative;
   color: $white-app;
   padding-top: 10px;
   background-color: $dark-app;
@@ -137,6 +138,14 @@
     border-top: 1px solid $orange-app;
     width: 100%;
   }
+}
+
+.actions {
+  padding: 5px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 @media (max-width: 991px) {

@@ -13,11 +13,13 @@ class BookPolicy < ApplicationPolicy
     true
   end
 
+  # We can update or destroy a book only if it is available, eg : if no customer bought it or if it is currently in a cart
+
   def update?
-    user == record.seller
+    user == record.seller && record.available?
   end
 
   def destroy?
-    user == record.seller
+    user == record.seller && record.available?
   end
 end
