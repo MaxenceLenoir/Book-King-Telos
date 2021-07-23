@@ -11,7 +11,8 @@ module RailsBookStoreTelos
     config.generators do |generate|
       generate.assets false
       generate.helper false
-      generate.test_framework :test_unit, fixture: false
+      generate.test_framework :rspec
+      generate.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
