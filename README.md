@@ -1,4 +1,6 @@
-Rails App Book Store - Telos Labs Challenge
+# Book-King - Telos Labs Challenge
+
+This is a simple app market place app to sell / buy books.
 
 In order to better understand how this app works, you can find futher information [here](https://github.com/MaxenceLenoir/Book-King-Telos/tree/master/doc)
 
