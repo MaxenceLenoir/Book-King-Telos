@@ -1,6 +1,6 @@
 <% if current_buyer.cart.cart_elements.present? %>
   <div class="d-flex flex-column align-items-center justify-content-center">
-    <%= link_to "Pay #{humanized_money_with_symbol(current_buyer.cart.amount)}", cart_payment_path, method: :patch, class: "button btn-orange-ext mb-4" %>
+    <%= link_to "Pay #{humanized_money_with_symbol(current_buyer.cart.amount)}", cart_payment_path, method: :patch, class: "button btn-orange-ext mb-4", id: "pay-button" %>
     <% unless current_buyer.can_pay_cart? %>  
       <div class="text-danger mb-5 font-italic">Attention ! It seems like you don't have enough money to pay.</div>
     <% end %>

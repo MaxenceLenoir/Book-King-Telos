@@ -14,7 +14,7 @@ RSpec.describe "BooksRequest", type: :request do
     end
   end
 
-  describe 'Logged as an buyer' do
+  describe 'Logged as a buyer' do
     before do
       sign_in(buyer)
     end
@@ -35,7 +35,7 @@ RSpec.describe "BooksRequest", type: :request do
     end
   end
 
-  describe 'Logged as an seller' do
+  describe 'Logged as a seller' do
     before do
       sign_in(seller)
     end

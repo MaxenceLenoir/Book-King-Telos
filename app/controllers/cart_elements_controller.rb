@@ -7,7 +7,7 @@ class CartElementsController < ApplicationController
       cart_element.save
       current_buyer.cart.increment(:amount_cents, @book.price_cents).save
       BooksChannel.broadcast_to('books', id: @book.id)
-      format.js { render 'books/show.js.erb' }
+      format.js { render 'books/show' }
     end
   end
 
