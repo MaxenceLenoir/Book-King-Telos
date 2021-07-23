@@ -3,6 +3,7 @@ class Cart < ApplicationRecord
 
   monetize :amount_cents
   validates :state, presence: true, inclusion: { in: Cart::STATES }
+  validates :amount_cents, presence: true
   validates :amount_cents, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :buyer

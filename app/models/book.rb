@@ -2,10 +2,10 @@ class Book < ApplicationRecord
   include PgSearch::Model
 
   monetize :price_cents
-  
+
   validates :price_cents, numericality: { greater_than_or_equal_to: 0 }
-  validates :title, :description, :author, :price, presence: true
-  
+  validates :title, :description, :author, :price_cents, presence: true
+
   belongs_to :seller
   has_many :cart_elements
   has_many :carts, through: :cart_elements
