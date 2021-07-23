@@ -1,6 +1,6 @@
 
 <div class="scene">
-  <div class="book-wrap">
+  <div class="book-wrap" id="show-card-book-<%=@book.id%>">
     <div class="left-side">
       <div class="book-cover-left"></div>
       <div class="layer1">
@@ -67,10 +67,8 @@
               <h6><%= @book.created_at.strftime("at %I:%M%p") %></h6>
             </div>
             <% if current_buyer %>
-              <div class="d-flex justify-content-center button">
-                  <%= simple_form_for @cart_element, method: :post, url: cart_elements_path, remote: true do |f| %>
-                    <%= render "render_form_new_cart_element" %>
-                  <% end %>
+              <div class="d-flex justify-content-center button" id="book-availability">
+                  <%= render "render_form_new_cart_element" %>
               </div>
             <% end %>
             <div class="price-page d-flex ml-auto">

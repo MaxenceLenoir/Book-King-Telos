@@ -21,7 +21,6 @@
 
 .book-wrap {
   word-break: break-word;
-  overflow: hidden;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,6 +150,7 @@
 }
 
 .page-left-2 {
+  overflow: hidden;
   position: relative;
   -webkit-box-flex: 1;
   -webkit-flex: 1;

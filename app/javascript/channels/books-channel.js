@@ -9,9 +9,11 @@ const initBooksCable = () => {
       }
       const showBook = document.getElementById(`show-card-book-${data.id}`)
       if (showBook) {
-        const button = document.getElementById('button-add-cart')
-        button.insertAdjacentHTML('afterend', 'We are sorry but this book is no longer available..')
-        button.remove()
+        const form = document.getElementById('new_cart_element')
+        if (form) {
+          form.insertAdjacentHTML('afterend', '<div class="text-center">We are sorry but this book is no longer available..</div>')
+          form.remove()
+        }
       }
     },
   });

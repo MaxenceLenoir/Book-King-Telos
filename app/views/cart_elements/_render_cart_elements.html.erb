@@ -11,15 +11,13 @@
         <%= link_to cart_element_path(c_e), method: :delete, class:"delete-link", remote: true do %>
           <i class="far fa-trash-alt text-danger"></i>
         <% end %>
-        <%= link_to book_path(c_e.book), class: "w-100 h-100 z-index-0" do %>
-          <div class="cover">
-            <div class="title px-2"><%= c_e.book.title %></div>
-            <div class="footer">
-              <div class="author"><%= c_e.book.author %></div>
-              <div class="price"><%= humanized_money_with_symbol(c_e.book.price) %> </div> 
-            </div>
+        <div class="cover">
+          <div class="title px-2"><%= c_e.book.title %></div>
+          <div class="footer">
+            <div class="author"><%= c_e.book.author %></div>
+            <div class="price"><%= humanized_money_with_symbol(c_e.book.price) %> </div> 
           </div>
-        <% end %>
+        </div>
         <div class="page"></div>
         <div class="page page-2"></div>
         <div class="page page-3"></div>

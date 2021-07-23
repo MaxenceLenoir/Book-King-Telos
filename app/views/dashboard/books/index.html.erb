@@ -11,7 +11,7 @@
   <% if current_seller.books.any? %>
     <% current_seller.books.each do |book| %>
       <%= link_to book_path(book) do %>
-        <div class="card-book" id="card-book-<%= book.id %>">
+        <div class="card-book">
           <% if book.sold? %>
             <div class="tag-book border border-success text-success">Sold</div>
           <% elsif book.available? %>
