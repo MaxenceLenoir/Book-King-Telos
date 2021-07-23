@@ -1,61 +1,83 @@
-## Local Development
+# How this webapp works
 
-### Prerequisites
+  After seeding the database you can launch the app `rails server` and go to localhost:3000.
+  You will be able to connect, or to create account for both seller or buyer.
 
-If you don't already have them :
+## Seller
 
-- Install ruby 2.6.6 `rbenv install 2.6.6 && rbenv global 2.6.6`
-- Install NodeJS (version 14, you may use [nvm](https://github.com/nvm-sh/nvm) if you have several versions)
-- Install yarn `npm i -g yarn`
+  create an account
+   - First Name
+   - Last Name
+   - Email
+   - Address
+   - Password
 
-### Install PostgreSQL:
 
-#### Using your favorite package manager
+  #### Feature Books Index Page
+   - Search Bar (No reload)
+   - Click a book card to acces its show
+   - Link to create a book
+     + Title
+     + Description
+     + Author
+     + Price
 
-Install postgresql directly on your machine, for example with
-`brew install postgresql` on macOS.
+  After the creation, you'll see a **$1** difference with the price you entered, that's **Book-King fees**.
 
-### Dependencies
 
-Setup the project's dependencies :
+  #### Feature Book Show Page
+   - Display all information (Information creation + seller)
+   - **destroy and edit** a book if :
+     1. **Your are the seller**
+     2. **Your book is available (eg: it isn't currently in a customer's cart and it hasn't been sold)**
 
-```bash
-bundle install
-yarn install
-rails db:create
-```
 
-### Database / Cache
+  #### Feature Dashboard
+   - earnings visualisation
+   - list of your book with different tags 
+      + Sold
+      + In a cart
+      + In stock
 
-- Run the migrations : `rails db:migrate RAILS_ENV=development`
-- Run the db services according to your installation
 
-### Running
 
-```bash
-rails s
-```
+## Buyer
 
-### Data seed
+  create an acoount
+   - First Name
+   - Last Name
+   - Email
+   - Phone
+   - Password
 
-To populate data seeds for your dev environment, run the following command :
+  #### Feature Books Index Page
+   - Search Bar (No reload)
+   - Click a book card to acces its show
 
-```ruby
-rails db:seed
-```
+  #### Feature Book Show Page
+   - Display all information (Information creation + seller)
+   - "Add to cart" if **book available**
 
-### Admin development
+   Clicking the "add to cart" button have consequences for yourself :
+   1. Increment the notification cart counter by 1
+   2. Button disappear
+   3. New text appear "We are sorry but this book is no longer available".
+   
+ **BUT**, it also changes other users interface :
+   
+   5. If a user were on the same page, he would see the button disappear and the text appear in real time.
+   6. If a user were on the index page, he would see the book disappear from the books's list.
+   All this actions don't require a page relaod
+   
+ #### Feature Cart Show Page
+  - List of the book in the cart (Delete from the cart by clicking on the trash)
+  - Total price
+  - Pay button *(whether it's i. or ii. case, your cart will be emptied)*
+     1. You have enough money and your buy is confirmed.
+     2. You don't have enough money and your buy is canceled.
+  
+  *If you don't have enough money on your account, a warning appears on this page.*
 
-In a rails console with `rails c`
-
-```ruby
-buyer = Buyer.find_by(email: <your_email>)
-```
-
-## Testing
-
-To launch the tests locally, run:
-
-```bash
-rspec
-```
+ #### Feature Profile Show Page
+  - See information (basics / money on your account / list books bought)
+  - Edit your information
