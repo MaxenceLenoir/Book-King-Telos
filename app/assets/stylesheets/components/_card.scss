@@ -44,11 +44,14 @@
       z-index: 2;
     }
   }
+  .z-index-0 {
+    z-index: 0;
+  }
   .title {
+    z-index: 5;
+    color: $orange-app!important;
     word-break: break-word;
     font-size: 24px;
-    color: $orange-app!important;
-    z-index: 5;
     max-height: 110px;
     overflow: hidden;
   }
