@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = params[:query] ? policy_scope(Book).search_by_title(params[:query]) : policy_scope(Book)
+    respond_to do |format|
+      @books = params[:query] ? policy_scope(Book).search_by_title(params[:query]) : policy_scope(Book)
+      format.html
+      format.js { render 'books/index.js.erb' }
+    end
   end
 
   def new

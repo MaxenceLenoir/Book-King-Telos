@@ -1,11 +1,11 @@
 <% if policy(Book).new?  %>
-  <%= link_to "Want to sell a book ?", new_book_path, class: "mx-auto" %>
+  <%= link_to "Want to sell a book ?", new_book_path, class: "mx-auto hover-underline" %>
 <% end %>
 
 <h1 class="text-center mb-3">Book-King library</h1>
 
-<div class="row">
-  <form action=<%= books_path %> method="GET" class="my-4 offset-md-3 col-md-6">
+  <form action=<%= books_path %> method="GET" class="my-4 offset-md-3 col-md-6 position-relative mb-5" data-remote="true">
+    <span id="link-no-query"><%= render "link_no_query" %></span>
     <div class="input-group search-bloc">
       <input class="form-control py-2" name="query" type="search" placeholder="Harry Potter">
       <span class="input-group-append">
@@ -15,35 +15,9 @@
       </span>
     </div>
   </form>
-</div>
-
-<% if params[:query] %>
-  <%= link_to "See all the books", books_path, class: "position-absolute fixed-top" %>
-<% end %>
 
 
 <div class="container-wrap" id="books-container">
-  <% @books.each do |book| %>
-    <% if book.available? %>
-      <%= link_to book_path(book), id: "card-book-#{book.id}" do %>
-        <div class="card-book">
-          <div class="cover">
-            <div class="title px-2"><%= book.title %></div>
-            <div class="footer">
-              <div class="author"><%= book.author %></div>
-              <div class="price"><%= humanized_money_with_symbol(book.price) %> </div> 
-            </div>
-          </div>
-          <div class="page"></div>
-          <div class="page page-2"></div>
-          <div class="page page-3"></div>
-          <div class="page page-4"></div>
-          <div class="cover final-page">
-            <div class="text"></div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
+  <%= render "render_books" %>
 </div>
 

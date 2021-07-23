@@ -17,11 +17,12 @@ require 'capybara/rspec'
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new app, browser: :chrome,
                                       options:
-  Selenium::WebDriver::Chrome::Options.new(args: %w[disable-gpu])
+  Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
 end
 
 Capybara.javascript_driver = :chrome
 Capybara.default_max_wait_time = 10
+
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
