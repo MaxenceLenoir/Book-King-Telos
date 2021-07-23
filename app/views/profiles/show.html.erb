@@ -2,6 +2,7 @@
 <div class="row">
   <div class="offset-lg-3 col-lg-6">
     <div class="card-identity">
+      <div class="element text-success position-absolute corner-left"><i class="fas fa-money-bill-wave mr-3"></i><span class="text-32"><%= humanized_money_with_symbol(@buyer.account_money) %></span></div>
       <div class="actions">
         <% if policy(@buyer).update?  %>
           <%= link_to edit_profile_path(@buyer), class: "mr-1" do %>
@@ -10,14 +11,13 @@
         <% end %>
       </div>
       <%= image_tag "avatar.png", class: "avatar-large" %>
+      <div class="element text-32 orange-text"><%= @buyer.name %></div>
       <div class="row w-100">
         <div class="col-lg-6">
-          <div class="element"><i class="fas fa-money-bill-wave mr-3"></i><%= humanized_money_with_symbol(@buyer.account_money) %></div>
           <div class="element"><i class="fas fa-envelope-open-text mr-3"></i><%= @buyer.email %></div>
           <div class="element"><i class="fas fa-book-open mr-3"></i><%= @buyer.cart_elements_paid.count %></div>
         </div>
         <div class="col-lg-6">
-          <div class="element"><i class="fas fa-signature mr-3"></i><%= @buyer.name %></div>
           <div class="element"><i class="fas fa-home mr-3"></i><%= @buyer.address %></div>
           <div class="element"><i class="fas fa-shopping-cart mr-3"></i><%= @buyer.notifs_counter %></div>
         </div>

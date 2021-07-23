@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   def cart_payment
     authorize current_buyer&.cart
     PaymentService.new.call(current_buyer) ? 
-      redirect_to(cart_path(current_buyer.cart), notice: "You don't have enough money") :
-      redirect_to(books_path, notice: "You buy has been approved")
+    redirect_to(books_path, notice: "You buy has been approved.") :
+    redirect_to(books_path, alert: "You don't have enough money, the transaction has been canceled.")
   end
 end

@@ -22,4 +22,8 @@ class Buyer < ApplicationRecord
   def notifs_counter
     cart_elements.count
   end
+
+  def can_pay_cart?
+    account_money > cart.amount
+  end
 end
