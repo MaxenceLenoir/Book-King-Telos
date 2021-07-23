@@ -4,7 +4,7 @@ class PaymentService
       true
     else
       user.cart.update(state: "paid")
-      user.decrement(:account_money_cents, user.cart.amount_cents)
+      user.decrement(:account_money_cents, user.cart.amount_cents).save
       Cart.create(buyer: user)
       false
     end

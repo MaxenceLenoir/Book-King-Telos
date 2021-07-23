@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :books
   resources :carts, only: :show
-  get '/cart_payment/pay', to: 'carts#cart_payment', as: :cart_payment
+  patch '/cart_payment/pay', to: 'carts#cart_payment', as: :cart_payment
   resources :cart_elements, only: %i[create destroy]
 
   namespace :dashboard do

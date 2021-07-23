@@ -5,6 +5,7 @@ RSpec.describe "BooksRequest", type: :request do
   let!(:seller) { create(:seller) }
   let(:book) { create(:book) }
   let(:seller_book) { create(:book, seller: seller) }
+  let(:cart_element_seller_book) { create(:cart_element, book: seller_book) }
 
   describe 'Unlogged' do
     it 'should not access the books index page' do
@@ -72,6 +73,12 @@ RSpec.describe "BooksRequest", type: :request do
     it "should be able to destroy a book which is mine" do
       seller_book
       expect { delete book_path(seller_book) }.to change(Book, :count).by(-1)
+    end
+
+    it "should not be able to destroy a book which is in a customer's cart" do
+      seller_book
+      cart_element_seller_book
+      expect { delete book_path(seller_book) }.to raise_error(Pundit::NotAuthorizedError)
     end
   end
 end
