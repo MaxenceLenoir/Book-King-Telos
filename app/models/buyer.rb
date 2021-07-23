@@ -7,6 +7,7 @@ class Buyer < ApplicationRecord
   monetize :account_money_cents
   validates :email, :first_name, :last_name, :address, :account_money_cents, presence: true
   validates :account_money_cents, numericality: { greater_than_or_equal_to: 0 }
+
   has_one :cart, -> { pending }
   has_many :carts
   has_many :carts_paid, -> { paid }, class_name: "Cart"
