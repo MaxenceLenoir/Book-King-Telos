@@ -35,9 +35,9 @@ gem 'devise'
 gem 'money-rails'
 gem "pundit"
 gem 'pg_search'
+gem 'faker'
 
 group :development, :test do
-  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
